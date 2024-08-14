@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>gedsi-hub-module-1</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches&amp;subset=latin-ext&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
+    <link rel="stylesheet" href="assets/css/activation.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Basic-icons.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top" style="background: #ffffff;">
+        <div class="container-fluid"><a class="navbar-brand login" href="#">GEDSI</a></div>
+    </nav>
+    <section id="main" class="log-main">
+        <h2 style="text-align: center;">Activate your Account</h2>
+        <div class="container login-con">
+            <form class="text-center" method="post">
+                <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start login-lbl">Email</label><input class="focus-ring focus-ring-light form-control d-flex justify-content-center align-items-center login-form" type="email" name="email" placeholder="Enter your pup webmail" required="" pattern="^[a-zA-Z0-9._%+-]+@.+\.(pup|edu|com)$"></div>
+                <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start login-lbl">Password</label><input class="focus-ring focus-ring-light form-control d-flex justify-content-center align-items-center" type="password" name="password" placeholder="Enter your password" required="" minlength="6"></div>
+                <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start login-lbl">Role</label><select class="focus-ring focus-ring-light form-select select-role" id="role" name="role" required="">
+                        <option value="" selected="">Select your role</option>
+                        <option value="student">Student</option>
+                        <option value="employee">Employee</option>
+                    </select></div>
+                <div class="d-flex justify-content-between login-ftr">
+                    <div class="form-check rbm-me"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Keep me logged in</label></div><a class="fgt-pass" href="#">Forgot Password?</a>
+                </div>
+                <div class="mb-3"><button class="btn btn-primary shadow-sm d-block w-100 login-btn" type="submit" title="click to login">Login</button></div>
+            </form>
+        </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
