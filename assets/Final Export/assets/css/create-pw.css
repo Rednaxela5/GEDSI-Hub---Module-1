@@ -1,0 +1,24 @@
+#cpw-main {
+  width: 100%;
+  height: 100vh;
+  margin-top: 120px;
+  font-family: Poppins, sans-serif;
+  color: #464040;
+}
+
+.heading-cpw p {
+  margin-top: 20px;
+}
+
+.tooltip-inner {
+  max-width: 524px;
+  white-space: normal;
+}
+
+@media (max-width: 575px) {
+  .tooltip-inner {
+    max-width: 325px;
+    white-space: normal;
+  }
+}
+
