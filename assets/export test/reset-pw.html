@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches&amp;subset=latin-ext&amp;display=swap">
     <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
-    <link rel="stylesheet" href="assets/css/activation.css">
+    <link rel="stylesheet" href="assets/css/activation-1.css">
     <link rel="stylesheet" href="assets/css/pre-activation.css">
 </head>
 
@@ -18,20 +18,15 @@
         <div class="container-fluid"><a class="navbar-brand login" href="#">GEDSI HUB</a></div>
     </nav>
     <section id="main" class="log-main">
-        <h2 style="text-align: center;">Activate your Account</h2>
-        <div class="container login-con">
+        <div class="text-center flex-column justify-content-center align-items-center align-content-center mx-auto justify-content-md-center upper info" style="max-width: 596px;">
+            <h2 class="fw-semibold text-center" style="text-align: center;margin-bottom: 20px;">Reset Your Password</h2>
+            <p class="d-flex justify-content-center reset-p">Enter your PUP webmail below and we will send you a link to reset your password.</p>
+        </div>
+        <div class="container login-con" style="padding-top: 40px;">
             <form class="text-center" method="post">
                 <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start login-lbl">Email</label><input class="focus-ring focus-ring-light form-control d-flex justify-content-center align-items-center login-form" type="email" name="email" placeholder="Enter your pup webmail" required="" pattern="^[a-zA-Z0-9._%+-]+@.+\.(pup|edu|com)$"></div>
-                <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start login-lbl">Password</label><input class="focus-ring focus-ring-light form-control d-flex justify-content-center align-items-center" type="password" name="password" placeholder="Enter your password" required="" minlength="6"></div>
-                <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start login-lbl">Role</label><select class="focus-ring focus-ring-light form-select select-role" id="role" name="role" required="">
-                        <option value="" selected="">Select your role</option>
-                        <option value="student">Student</option>
-                        <option value="employee">Employee</option>
-                    </select></div>
-                <div class="d-flex justify-content-between login-ftr">
-                    <div class="form-check rbm-me"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Keep me logged in</label></div><a class="fgt-pass" href="#">Forgot Password?</a>
-                </div>
-                <div class="mb-3"><button class="btn btn-primary shadow-sm d-block w-100 login-btn" type="submit" title="click to login" data-bs-target="#success-activated">Login</button></div>
+                <div class="mb-3"><button class="shadow-sm d-block w-100 login-btn" type="submit" title="click to login" data-bs-target="">Send Email</button></div>
+                <div class="mb-3"><a class="shadow-sm d-block w-100 cancel-btn" role="button" href="#" title="click to login" data-bs-target="#success-activated">Cancel</a></div>
             </form>
         </div>
     </section>

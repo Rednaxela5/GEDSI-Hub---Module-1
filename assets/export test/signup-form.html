@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>gedsi-module-1-alex</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches&amp;subset=latin-ext&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/activation.css">
+    <link rel="stylesheet" href="assets/css/create-pw.css">
+    <link rel="stylesheet" href="assets/css/emailsent-fp.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/signup-form.css">
+    <link rel="stylesheet" href="assets/css/success.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top" style="background: #ffffff;">
+        <div class="container-fluid"><a class="navbar-brand login" href="#">GEDSI HUB</a></div>
+    </nav>
+    <section id="suf-main">
+        <div class="text-center heading-suf">
+            <h2 class="fw-semibold">Welcome to GEDSI Hub!</h2>
+            <p>Please complete the following information to proceed.</p>
+        </div>
+        <section id="step1" class="step active">
+            <div class="container form-con" style="padding-top: 30px; padding-bottom:30px">
+                <form class="text-center input-form" id="form-1" method="post">
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Full Legal Name</label>
+                        <div class="input-fln"><input class="form-control full-leg-name s-form" type="text" name="firstname" placeholder="First Name" required=""><input class="form-control full-leg-name s-form" type="text" name="middlename" placeholder="Middle Name" required=""><input class="form-control full-leg-name s-form" type="text" name="lastname" placeholder="Last Name" required=""><input class="form-control full-leg-name s-form" type="text" name="suffix" placeholder="Suffix"></div>
+                    </div>
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Lived Name (Optional)</label><input class="form-control s-form" type="text" name="livedname" placeholder="Lived Name"></div>
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Birthday</label><input class="form-control s-form" id="birthday" type="date" name="birthday"></div>
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Phone Number</label><input class="form-control s-form" type="text" id="phone" placeholder="09XXXXXXXX" required="" maxlength="11" pattern="[0-9]*" name="phone"></div>
+                </form>
+            </div>
+            <div class="container d-flex justify-content-end nav-button"><button class="next-btn" type="button" onclick="nextStep(2)">Next</button></div>
+        </section>
+        <section id="step2" class="step">
+            <div class="container form-con" style="padding-top: 30px; padding-bottom:30px">
+                <form class="text-center input-form" id="form-2" method="post">
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Type of User</label><select id="role" class="form-select s-form" name="role" required>
+    <option value="&quot; &quot;" disabled selected>Select your role</option>
+    <option value="Student">Student</option>
+    <option value="Employee">Employee</option>
+</select></div>
+                </form>
+            </div>
+            <div class="container d-flex justify-content-between nav-button"><button class="back-btn" type="button" onclick="prevStep(1)">Back</button><button class="next-btn" type="button" onclick="nextStep(3)">Next</button></div>
+        </section>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

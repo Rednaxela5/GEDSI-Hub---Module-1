@@ -1,4 +1,4 @@
-#reg-main {
+#login-main {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -13,18 +13,7 @@
   color: #464040;
 }
 
-.select-role {
-  height: 59px;
-  border-radius: 10px;
-  color: #464040;
-  font-size: 18px;
-}
-
-select:invalid, select[value=""] {
-  color: #595c69;
-}
-
-.reg-con {
+.login-con {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   margin-right: 0px;
@@ -36,13 +25,49 @@ select:invalid, select[value=""] {
   overflow: hidden;
 }
 
-.reg-con p {
+.login-con p {
   margin-top: 20px;
   font-size: 18px;
   color: #464040;
 }
 
-.reg-con button {
-  margin-top: 35px;
+.login-ftr {
+  font-size: 15px;
+  color: #464040;
+  margin-bottom: 30px;
+}
+
+.login-ftr a {
+  text-decoration: none;
+  color: #464040;
+}
+
+.login-ftr a:hover {
+  text-decoration: none;
+  color: #807f7f;
+}
+
+.gedsi-logo {
+  width: 140px;
+}
+
+@media (max-width: 575px) {
+  .login-form {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .gedsi-logo {
+    width: 110px;
+    margin-top: -30px;
+  }
+}
+
+@media (max-width: 575px) {
+  #login-main {
+    font-size: 18px;
+    /*margin-bottom: 14px;*/
+  }
 }
 
