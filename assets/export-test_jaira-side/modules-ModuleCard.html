@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>gedsi-hub-module-1-Jaira-Side</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/addNewModule.css">
+    <link rel="stylesheet" href="assets/css/CMSEditNewCreatedLesson.css">
+    <link rel="stylesheet" href="assets/css/createNewLesson.css">
+    <link rel="stylesheet" href="assets/css/editNewAddedModule.css">
+    <link rel="stylesheet" href="assets/css/editNewCreatedModule.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Centered-Links-icons.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background: #fafafa;">
+    <nav class="navbar navbar-expand-md sticky-top bg-body navbar">
+        <div class="container-fluid"><a class="navbar-brand d-flex align-items-center navbar_brand" href="#" style="font-family: Staatliches, serif;"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="background: rgba(13,110,253,0);width: 30px;"><img class="GAD_Logo" src="assets/img/GADO_Logo_w-Border.png"></span><span class="gedsihub_name" style="color: rgb(70,64,64);font-size: 30px;">GEDSI Hub</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-md-end justify-content-lg-end justify-content-xl-end justify-content-xxl-end" id="navcol-3"><img class="search_icon" src="assets/img/Search.png"><input type="search" class="navbar_search" placeholder="Search for anything"><span class="navbar-text notification_icon_span" style="margin-right: 4px;"><img class="notification_icon" src="assets/img/Notification.png"></span><span class="d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center justify-content-xxl-center align-items-xxl-center navbar-text profile_icon_span"><img class="d-xxl-flex profile_icon" src="assets/img/Account.png"></span></div>
+        </div>
+    </nav>
+    <div class="modules_container">
+        <h1 class="modules_title" style="color: #464040;">Modules</h1>
+        <div class="container moduleCards_container">
+            <div class="break_title"></div>
+            <div class="row">
+                <div class="col-md-3 col-xxl-3 column_moduleCards">
+                    <div class="module_card" style="padding-right: 27px;padding-left: 27px;"><span class="moduleIcon_container" style="color: rgb(33, 37, 41);margin-left: 0px;"><img class="ModuleTempIcon" src="assets/img/GADO_Logo_white.png"><input type="color" id="colorPicker" class="ColorInput"></span><span class="fw-bolder ModuleTitle" id="ModuleTitle">Title</span>
+                        <div id="NumberOfLessonsContainer" class="NumberOfLessonsContainer" style="width: auto;height: auto;"><img class="LessonIcon" src="assets/img/lesson.png"><span id="NumberOfLessons" class="NumberOfLessons">0</span><span class="fw-normal LessonsText" style="margin-left: 0px;position: static;margin-top: 0px;">lessons</span></div>
+                        <div id="LikeViewContainer" class="LikeViewContainer" style="width: auto;">
+                            <div class="LikeOnlyContainer"><img class="LikeIcon" src="assets/img/Like.png" style="width: 15px;margin-top: 0px;"><span id="LikeCount">0</span></div>
+                            <div class="ViewOnlyContainer"><img class="ViewIcon" src="assets/img/View.png" style="width: 15px;"><span id="ViewCount">0</span></div>
+                        </div>
+                        <div class="ModuleCard_LineBreak"></div><button class="d-xxl-flex justify-content-xxl-start unpublishButton" id="unpublishModuleButton" type="button"><img class="PublishIcon" src="assets/img/Publish.png">Publish</button><button class="d-xxl-flex justify-content-xxl-start publishButton" id="publishModuleButton" type="button" style="margin-top: 179px;"><img class="PublishIcon" src="assets/img/Publish.png">Publish</button>
+                        <div class="d-xxl-flex justify-content-xxl-end" style="margin-top: 19px;"><img id="EditModule" class="Edit" src="assets/img/Edit.png"><img id="DeleteModule" class="Delete" src="assets/img/Delete.png"></div>
+                    </div>
+                </div>
+                <div class="col-md-3 column_moduleCards">
+                    <div data-bss-hover-animate="pulse" class="module_card"><span class="moduleIcon_container"></span></div>
+                </div>
+                <div class="col-md-3 column_moduleCards">
+                    <div data-bss-hover-animate="pulse" class="module_card"><span class="moduleIcon_container"></span></div>
+                </div>
+                <div class="col-md-3 column_moduleCards">
+                    <div data-bss-hover-animate="pulse" class="module_card"><span class="moduleIcon_container"></span></div>
+                </div>
+            </div>
+            <div class="row secondRow_modules">
+                <div class="col-md-3 column_moduleCards">
+                    <div data-bss-hover-animate="pulse" class="module_card"><span class="moduleIcon_container"></span></div>
+                </div>
+                <div class="col-md-3 column_moduleCards">
+                    <div data-bss-hover-animate="pulse" class="module_card"><span class="moduleIcon_container"></span></div>
+                </div>
+                <div class="col-md-3 column_moduleCards">
+                    <div data-bss-hover-animate="pulse" class="module_card"><span class="moduleIcon_container"></span></div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar_container" style="width: 350px;height: 700px;">
+        <div class="sidebar" style="width: 300px;">
+            <div class="d-xxl-flex align-items-xxl-center dashboard_container" id="SidebarButton_Dashboard">
+                <div class="col-xxl-5 d-xxl-flex justify-content-xxl-center" style="width: 90px;"><img id="sidebar_icons" class="dashboard_icon" src="assets/img/Dashboard_Dark.png" style="width: 43px;"></div>
+                <div class="col"><span class="d-xxl-flex justify-content-xxl-start align-items-xxl-center sidebar_label" style="text-align: right;font-size: 18px;color: #464040;">Dashboard</span></div>
+            </div><div id="SidebarButton_Modules" class="d-xxl-flex justify-content-xxl-center align-items-xxl-center dashboard_container" style="color: #464040;">
+    <div class="col-xxl-5 d-xxl-flex justify-content-xxl-center align-items-xxl-start" style="color: #464040;width: 90px;"><img src="assets/img/Modules_Dark.png" style="width: 43px;color: #464040;" /></div>
+    <div class="col" style="color: #464040;"><span class="d-xxl-flex justify-content-xxl-start sidebar_label" style="text-align: right;font-size: 18px;color: #464040;">Modules</span></div>
+</div>
+            <div class="d-xxl-flex justify-content-xxl-center align-items-xxl-center dashboard_container" id="SidebarButton_Leaderboard" style="color: #464040;">
+                <div class="col-xxl-4 d-xxl-flex justify-content-xxl-center align-items-xxl-start" style="color: #464040;width: 90px;"><img src="assets/img/Leaderboard_Dark.png" style="width: 43px;color: #464040;"></div>
+                <div class="col" style="color: #464040;"><span class="d-xxl-flex justify-content-xxl-start align-items-xxl-center sidebar_label" style="text-align: right;font-size: 18px;color: #464040;">Leaderboard</span></div>
+            </div>
+            <div class="d-xxl-flex justify-content-xxl-center align-items-xxl-center dashboard_container" id="SidebarButton_Forum" style="color: #464040;">
+                <div class="col-xxl-4 d-xxl-flex justify-content-xxl-center align-items-xxl-start" style="color: #464040;width: 90px;"><img src="assets/img/Forum_Dark.png" style="width: 43px;color: #464040;"></div>
+                <div class="col" style="color: #464040;"><span class="d-xxl-flex justify-content-xxl-start align-items-xxl-center sidebar_label" style="text-align: right;font-size: 18px;color: #464040;">Forum</span></div>
+            </div>
+            <div class="d-xxl-flex justify-content-xxl-center align-items-xxl-center dashboard_container" id="SidebarButton_Feedback" style="color: #464040;">
+                <div class="col-xxl-4 d-xxl-flex justify-content-xxl-center align-items-xxl-start" style="color: #464040;width: 90px;"><img src="assets/img/Feedback_Dark.png" style="width: 43px;color: #464040;"></div>
+                <div class="col" style="color: #464040;"><span class="d-xxl-flex justify-content-xxl-start align-items-xxl-center sidebar_label" style="text-align: right;font-size: 18px;color: #464040;">Feedback</span></div>
+            </div>
+            <div class="d-xxl-flex justify-content-xxl-center align-items-xxl-center dashboard_container" id="SidebarButton_Logout" style="color: #464040;">
+                <div class="col-xxl-4 d-xxl-flex justify-content-xxl-center align-items-xxl-start" style="color: #464040;width: 90px;"><img src="assets/img/Logout_Dark.png" style="width: 43px;color: #464040;"></div>
+                <div class="col" style="color: #464040;"><span class="d-xxl-flex justify-content-xxl-start align-items-xxl-center sidebar_label" style="text-align: right;font-size: 18px;color: #464040;">Logout</span></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/breadcrumb.js"></script>
+    <script src="assets/js/CMS.js"></script>
+    <script src="assets/js/createLesson.js"></script>
+    <script src="assets/js/DeleteLesson.js"></script>
+    <script src="assets/js/EditLesson.js"></script>
+    <script src="assets/js/Modules_CardAdd.js"></script>
+    <script src="assets/js/PublishUnpublishLessontoggle.js"></script>
+    <script src="assets/js/Sidebar.js"></script>
+    <script src="assets/js/tinymce-init.js"></script>
+</body>
+
+</html>
