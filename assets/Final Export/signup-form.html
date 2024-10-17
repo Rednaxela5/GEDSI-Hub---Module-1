@@ -29,12 +29,25 @@
         <section id="step1" class="step active">
             <div class="container form-con" style="padding-top: 30px; padding-bottom:30px">
                 <form class="text-center input-form" id="form-1" method="post">
-                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Full Legal Name</label>
-                        <div class="input-fln"><input class="form-control full-leg-name s-form" type="text" name="firstname" placeholder="First Name" required=""><input class="form-control full-leg-name s-form" type="text" name="middlename" placeholder="Middle Name" required=""><input class="form-control full-leg-name s-form" type="text" name="lastname" placeholder="Last Name" required=""><input class="form-control full-leg-name s-form" type="text" name="suffix" placeholder="Suffix"></div>
+                    <div class="mb-3">
+                        <label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Full Legal Name</label>
+                        <div class="input-fln">
+                            <input class="form-control full-leg-name s-form" type="text" name="firstname" placeholder="First Name" required="">
+                            <input class="form-control full-leg-name s-form" type="text" name="middlename" placeholder="Middle Name" required="">
+                            <input class="form-control full-leg-name s-form" type="text" name="lastname" placeholder="Last Name" required="">
+                            <input class="form-control full-leg-name s-form" type="text" name="suffix" placeholder="Suffix"></div>
                     </div>
-                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Lived Name <span style="color: rgb(156, 156, 156);">(Optional)</span></label><input class="form-control s-form" type="text" name="livedname" placeholder="Lived Name"></div>
-                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Birthday</label><input class="form-control s-form" id="birthday" type="date" name="birthday"></div>
-                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Phone Number</label><input class="form-control s-form" type="text" id="phone" placeholder="09XXXXXXXX" required="" maxlength="11" pattern="[0-9]*" name="phone"></div>
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Lived Name <span style="color: rgb(156, 156, 156);">(Optional)</span></label>
+                        <input class="form-control s-form" type="text" name="livedname" placeholder="Lived Name">
+                    </div>
+                    
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Birthday</label>
+                        <input class="form-control s-form" id="birthday" type="date" name="birthday">
+                    </div>
+                    
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Phone Number</label>
+                        <input class="form-control s-form" type="text" id="phone" placeholder="09XXXXXXXX" required="" maxlength="11" pattern="[0-9]*" name="phone">
+                    </div>
                 </form>
             </div>
             <div class="container d-flex justify-content-end nav-button"><button class="next-btn" type="button" onclick="nextStep(2)">Next</button></div>
@@ -107,14 +120,22 @@
     <option value="OVPRED">Office of the Vice President for Research, Extension, and Development</option>
     <option value="OPRES">Office of the President</option>   
 </select></div>
-                        <div id="branch-office-container" class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Branch/Office/Section/Unit</label><select id="branch-office" class="form-select s-form" required>
-    <option value="" disabled selected>Select Branch-Office-Section-Unit</option>  
-</select></div>
-                        <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Position/Designation</label><input class="form-control s-form" type="text" placeholder="Enter Position/Designation" required="" maxlength="11" pattern="[0-9]*" name="position"></div>
+                        <div id="branch-office-container" class="mb-3">
+                            <label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Branch/Office/Section/Unit</label>
+                            <select id="branch-office" class="form-select s-form" required>
+                                <option value="" disabled selected>Select Branch-Office-Section-Unit</option>  
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Position/Designation</label>
+                            <input class="form-control s-form" type="text" placeholder="Enter Position/Designation" required="" maxlength="11" pattern="[0-9]*" name="position"></div>
                     </div>
                 </form>
             </div>
-            <div class="container d-flex justify-content-between nav-button"><button class="back-btn" type="button" onclick="prevStep(1)">Back</button><button class="next-btn" type="button" onclick="nextStep(3)">Next</button></div>
+            <div class="container d-flex justify-content-between nav-button">
+                <button class="back-btn" type="button" onclick="prevStep(1)">Back</button>
+                <button class="next-btn" type="button" onclick="nextStep(3)">Next</button>
+            </div>
         </section>
         <section id="step3" class="step">
             <div class="container form-con" style="padding-top: 30px; padding-bottom:30px">
@@ -160,7 +181,10 @@
 </select></div>
                 </form>
             </div>
-            <div class="container d-flex justify-content-between nav-button"><button class="back-btn" type="button" onclick="prevStep(3)">Back</button><button class="next-btn" type="submit" onclick="submitForm()">Submit</button></div>
+            <div class="container d-flex justify-content-between nav-button">
+                <button class="back-btn" type="button" onclick="prevStep(3)">Back</button>
+                <button class="next-btn" type="submit" onclick="submitForm()">Submit</button>
+            </div>
         </section>
     </section>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

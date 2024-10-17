@@ -28,12 +28,15 @@
         </div>
         <section id="step1" class="step active">
             <div class="container form-con" style="padding-top: 30px; padding-bottom:30px">
-                <form class="text-center input-form" id="form-1" method="post">
+                <form id="form-1" method="post">
                     <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Full Legal Name</label>
                         <div class="input-fln"><input class="form-control full-leg-name s-form" type="text" name="firstname" placeholder="First Name" required=""><input class="form-control full-leg-name s-form" type="text" name="middlename" placeholder="Middle Name" required=""><input class="form-control full-leg-name s-form" type="text" name="lastname" placeholder="Last Name" required=""><input class="form-control full-leg-name s-form" type="text" name="suffix" placeholder="Suffix"></div>
                     </div>
-                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Lived Name (Optional)</label><input class="form-control s-form" type="text" name="livedname" placeholder="Lived Name"></div>
-                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Birthday</label><input class="form-control s-form" id="birthday" type="date" name="birthday"></div>
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Lived Name <span style="color: rgb(156, 156, 156);">(Optional)</span></label><input class="form-control s-form" type="text" name="livedname" placeholder="Lived Name"></div>
+                    <div class="mb-3">
+                        <label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Birthday</label>
+                        <input class="form-control s-form" id="birthday" type="date" name="birthday">
+                    </div>
                     <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Phone Number</label><input class="form-control s-form" type="text" id="phone" placeholder="09XXXXXXXX" required="" maxlength="11" pattern="[0-9]*" name="phone"></div>
                 </form>
             </div>
@@ -41,15 +44,128 @@
         </section>
         <section id="step2" class="step">
             <div class="container form-con" style="padding-top: 30px; padding-bottom:30px">
-                <form class="text-center input-form" id="form-2" method="post">
-                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Type of User</label><select id="role" class="form-select s-form" name="role" required>
-    <option value="&quot; &quot;" disabled selected>Select your role</option>
+                <form class="text-center input-form" id="form2" method="post">
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Type of User</label><select id="role" class="form-select s-form" name="role" onchange="showConditionalFields()" required>
+    <option value="" disabled selected>Select your role</option>
     <option value="Student">Student</option>
     <option value="Employee">Employee</option>
 </select></div>
+                    <div id="student-fields" class="conditional-fields" style="display:none">
+                        <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">College Department</label><select id="college" class="form-select s-form" name="college" onchange="showProgramOptions()" required>
+    <option value="" disabled selected>Select your department</option>
+    <option value="CAF">CAF - College of Accountancy and Finance</option>
+    <option value="CADBE">CADBE - College of Architecture, Design and the Built Environment</option>
+    <option value="CAL">CAL - College of Arts and Letters</option>
+    <option value="CBA">CBA - College of Business Administration</option>
+    <option value="COC">COC - College of Communication</option>
+    <option value="CCIS">CCIS - College of Computer and Information Sciences</option>
+    <option value="COED">COED - College of Education</option>
+    <option value="CE">CE - College of Engineering</option>
+    <option value="CHK">CHK - College of Human Kinetics</option>
+    <option value="CL">CL - College of Law</option>
+    <option value="CPSPA">CPSPA - College of Political Science and Public Administration</option>
+    <option value="CSSD">CSSD - College of Social Sciences and Development</option>
+    <option value="CS">CS - College of Science</option>
+    <option value="CTHTM">CTHTM - College of Tourism, Hospitality and Transportation Management</option>
+</select></div>
+                        <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Program</label><select id="program" class="form-select s-form" name="program" required>
+    <option value="" disabled selected>Select your program</option>
+
+</select></div>
+                        <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Year Level</label><select id="year" class="form-select s-form" name="year" required>
+    <option value="" disabled selected>Select your Year Level</option>
+    <option value="1">1st Year</option>
+    <option value="2">2nd Year</option>
+    <option value="3">3rd Year</option>
+    <option value="4">4th Year</option>
+    <option value="5">5th Year</option>
+</select></div>
+                    </div>
+                    <div id="employee-fields" class="conditional-fields" style="display:none">
+                        <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Employee Type</label><select id="emptype" class="form-select s-form" name="emptype" required>
+    <option value="" disabled selected>Select employee type</option>
+    <option value="Faculty">Faculty</option>
+    <option value="Administrative Staff">Administrative Staff</option>
+    <option value="Designee">Designee</option>
+   
+</select></div>
+                        <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Employment Status</label><select id="indigenous" class="form-select s-form" name="indigenous" required>
+    <option value="" disabled selected>Select</option>
+    <option value="Permanent">Permanent</option>
+    <option value="Casual">Casual</option>
+    <option value="Contract of Service">Contract of Service</option>
+    <option value="Job Order">Job Order</option>
+    <option value="Temporary">Temporary</option>
+    <option value="Part-time">Part-time</option>
+   
+</select></div>
+                        <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Sector</label><select id="sector" class="form-select s-form" name="sector" onchange="showBranchOptions()" required>
+    <option value="" disabled selected>Select your sector</option>
+    <option value="EVP">Office of the Executive Vice President</option>
+    <option value="VPAA">Office of the Vice President for Academic Affairs</option>
+    <option value="VPF">Office of the Vice President for Planning and Finance</option>
+    <option value="VPSAS">Office of the Vice President for Student Affairs and Services</option>
+    <option value="VPA">Office of the Vice President for Administration</option>
+    <option value="VPC">Office of the Vice President for Campuses</option>
+    <option value="VPRED">Office of the Vice President for Research, Extension, and Development</option>
+    <option value="PRES">Office of the President</option>   
+</select></div>
+                        <div id="branch-office-container" class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Branch/Office/Section/Unit</label><select id="branch-office" class="form-select s-form" required>
+    <option value="" disabled selected>Select Branch-Office-Section-Unit</option>  
+</select></div>
+                        <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Position/Designation</label><input class="form-control s-form" type="text" placeholder="Enter Position/Designation" required="" maxlength="11" pattern="[0-9]*" name="position"></div>
+                    </div>
                 </form>
             </div>
             <div class="container d-flex justify-content-between nav-button"><button class="back-btn" type="button" onclick="prevStep(1)">Back</button><button class="next-btn" type="button" onclick="nextStep(3)">Next</button></div>
+        </section>
+        <section id="step3" class="step">
+            <div class="container form-con" style="padding-top: 30px; padding-bottom:30px">
+                <form class="text-center input-form" id="form3" method="post">
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Age</label><input class="form-control s-form" type="number" id="age" name="age" placeholder="Type your age" required=""></div>
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Sex</label><select id="gender" class="form-select s-form" name="gender" required>
+    <option value="" disabled selected>Select</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Intersex">Intersex</option>
+</select></div>
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Gender</label><select id="gender" class="form-select s-form" name="gender" required>
+    <option value="" disabled selected>Select</option>
+    <option value="Cisgender">Cisgender</option>
+    <option value="Transgender">Transgender</option>
+    <option value="Agender">Agender</option>
+    <option value="Gender Fluid">Gender Fluid</option>
+    <option value="Gender Queer">Gender Queer</option>
+</select></div>
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Pronouns</label><select id="pronouns" class="form-select s-form" name="pronouns" required>
+    <option value="" disabled selected>Select</option>
+    <option value="She/her">She/her</option>
+    <option value="He/him">He/him</option>
+    <option value="They/them">They/them</option>
+</select></div>
+                    <div class="mb-3"><label class="form-label d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Honorifics <span style="color: rgb(156, 156, 156);">(Optional)</span></label><input class="form-control s-form" type="text" name="honorifics" placeholder="Enter preferred honorifics" required=""></div>
+                </form>
+            </div>
+            <div class="container d-flex justify-content-between nav-button"><button class="back-btn" type="button" onclick="prevStep(2)">Back</button><button class="next-btn" type="button" onclick="nextStep(4)">Next</button></div>
+        </section>
+        <section id="step4" class="step">
+            <div class="container form-con" style="padding-top: 30px; padding-bottom:30px">
+                <form class="text-center input-form" id="form4" method="post">
+                    <div class="mb-3"><label class="form-label text-start d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Are you a member of any indigenous cultural community?</label><select id="pwd-stat" class="form-select s-form" name="pwd-stat" required>
+    <option value="" disabled selected>Select</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+</select></div>
+                    <div class="mb-3"><label class="form-label text-start d-flex d-lg-flex justify-content-start justify-content-lg-start input-lbl">Do you identify yourself as a differently abled person?</label><select id="indig-stat" class="form-select s-form" name="indig-stat" required>
+    <option value="" disabled selected>Select</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+</select></div>
+                </form>
+            </div>
+            <div class="container d-flex justify-content-between nav-button">
+                <button class="back-btn" type="button" onclick="prevStep(3)">Back</button>
+                <button class="next-btn" type="submit" onclick="submitForm()">Submit</button></div>
         </section>
     </section>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
