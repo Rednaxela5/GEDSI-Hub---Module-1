@@ -1,60 +1,73 @@
-// Common logic to save or update module data for both Add and Edit 
-function saveModuleData() {
-    const moduleTitle = document.getElementById('AddModule_TitleInput').value;
-    const moduleNumber = document.getElementById('AddModule_NumberInput').value; // Get the value from the input
+// Logic to save or update module data for both Add and Edit 
+function saveModuleData(event) {
 
-    if (!moduleTitle) {
-        alert('Please enter the module title');
-        return;
-    }
+  // Prevent default form submission if the event is passed (e.g., on form submit)
+  if (event) {
+      event.preventDefault();
+  }
+  
+  const moduleTitle = document.getElementById('AddModule_TitleInput').value;
+  const moduleNumber = document.getElementById('AddModule_NumberInput').value; // Get the value from the input
 
-    if (!moduleNumber) {
-        alert('Please enter the module number');
-        return;
-    }
+  // Validate the input fields
+  if (!moduleTitle) {
+      alert('Please enter the module title');
+      return;
+  }
 
-    let modules = JSON.parse(localStorage.getItem('modules')) || [];
-    
-    /*
-    // Check for duplicate module number
-    const isDuplicate = modules.some(module => module.number === moduleNumber);
-    if (isDuplicate) {
-        alert('Module number must be unique. Please enter a different module number.');
-        return; // Do not save if duplicate
-    }
-    */
+  if (!moduleNumber) {
+      alert('Please enter the module number');
+      return;
+  }
 
-    const editModuleIndex = localStorage.getItem('editModuleIndex');
+  // Retrieve existing modules from localStorage, or initialize as an empty array
+  let modules = JSON.parse(localStorage.getItem('modules')) || [];
+  
+  // Check for edit mode
+  const editModuleIndex = localStorage.getItem('editModuleIndex');
 
-    if (editModuleIndex !== null && editModuleIndex !== '') {
-        const index = parseInt(editModuleIndex, 10); // Ensure we are using an integer index
-        if (!isNaN(index)) {
-            // Edit existing module
-            modules[index].title = moduleTitle;
-            modules[index].number = moduleNumber; // Store module number
-            localStorage.removeItem('editModuleIndex'); // Clear after editing to avoid duplication
-        }
-    } else {
-        // Add new module
-        modules.push({ title: moduleTitle, number: moduleNumber, color: '#000000', isPublished: false });
+  if (editModuleIndex !== null && editModuleIndex !== '') {
+      const index = parseInt(editModuleIndex, 10); // Ensure we are using an integer index
+      if (!isNaN(index) && modules[index]) {
+          // Edit existing module
+          modules[index].title = moduleTitle;
+          modules[index].number = moduleNumber; // Update module number
+          localStorage.removeItem('editModuleIndex'); // Clear after editing to avoid duplication
 
-        // Set the last added module index to be edited on redirect
-        const newModuleIndex = modules.length - 1;
-        localStorage.setItem('editModuleIndex', newModuleIndex); // Store the new module's index for editing
-    }
+          // Redirect back to modules.html after editing
+          localStorage.setItem('modules', JSON.stringify(modules));
+          window.location.href = 'modules.html';
+          return;
+      } else {
+          console.error('Invalid module index for editing.');
+          return;
+      }
+  } else {
+      // Add new module only if it's not a duplicate
+      const isDuplicate = modules.some(module => module.number === moduleNumber);
+      if (isDuplicate) {
+          alert('Module number must be unique. Please enter a different module number.');
+          return; // Do not save if there's a duplicate
+      }
 
-    // Update localStorage but don't trigger rendering immediately
-    localStorage.setItem('modules', JSON.stringify(modules));
-    
-    // Save the newly added module title and number to localStorage for displaying in editNewCreatedModule.html
-    localStorage.setItem('newModuleTitle', moduleTitle);
-    localStorage.setItem('module_number', moduleNumber); // Store the module number
+      // Add a new module with default values for color and isPublished
+      modules.push({ title: moduleTitle, number: moduleNumber, color: '#000000', isPublished: false });
+  }
 
-    console.log('Saved Module Number:', moduleNumber); // Log the number to verify it's being saved
+  // Save the updated modules array back to localStorage
+  localStorage.setItem('modules', JSON.stringify(modules));
 
-    // Redirect to editNewCreatedModule.html
-    window.location.href = 'editNewCreatedModule.html';
+  // Store the new module data for use in editNewCreatedModule.html
+  localStorage.setItem('newModuleTitle', moduleTitle);
+  localStorage.setItem('module_number', moduleNumber);
+
+  console.log('Saved Module:', moduleTitle, 'Number:', moduleNumber); // Log the data for verification
+
+  // Redirect to editNewCreatedModule.html after adding a new module
+  window.location.href = 'editNewCreatedModule.html';
 }
+
+
 
 
 // Logic for deleting a module
@@ -105,7 +118,7 @@ function addAllModules() {
   const existingCards = moduleContainer.querySelectorAll('.module_card');
   existingCards.forEach(card => card.remove()); // Ensure we remove old cards to prevent duplicates
 
-modules.forEach((moduleData, index) => {
+  modules.forEach((moduleData, index) => {
     const newCard = document.createElement('div');
     newCard.classList.add('module_card');
     newCard.id = `moduleCard-${index}`;
@@ -158,8 +171,7 @@ modules.forEach((moduleData, index) => {
       // Redirect to editNewCreatedModule.html
       window.location.href = 'editNewCreatedModule.html';
     });
-});
-
+  });
 }
 
 // Apply color shadow dynamically when the page is loaded or color is changed
@@ -254,40 +266,83 @@ function initializeEditModule() {
   document.getElementById('AddModuleButton').addEventListener('click', saveModuleData);
 }
 
-
 // Automatically display modules on modules.html and handle adding/editing modules
 window.onload = function () {
-    // Check the current page and perform actions accordingly
-    if (window.location.pathname.includes('modules.html')) {
-        // Handle module display on the modules page
-        addAllModules();
-        initializeAddModuleButtons();
-    } else if (window.location.pathname.includes('addNewModule.html')) {
-        // Handle the add/edit module page
-        initializeEditModule();
-    } else if (window.location.pathname.includes('editNewCreatedModule.html')) {
-        // Handle the editNewCreatedModule page, display newly added module title and number
-        const newModuleTitle = localStorage.getItem('newModuleTitle');
-        const moduleNumber = localStorage.getItem('module_number');
+  // Check the current page and perform actions accordingly
+  const pathname = window.location.pathname;
 
-        // Display the module title if it exists
-        if (newModuleTitle) {
-            const titleElement = document.getElementById('added_module_title');
-            if (titleElement) {
-                titleElement.textContent = newModuleTitle;
-            } else {
-                console.error('Element with id "added_module_title" not found.');
-            }
-        }
+  if (pathname.includes('modules.html')) {
+      // Handle module display on the modules page
+      addAllModules();
+      initializeAddModuleButtons();
+  } else if (pathname.includes('addNewModule.html')) {
+      // Handle the add/edit module page
+      initializeEditModule();
+  } else if (pathname.includes('editNewCreatedModule.html')) {
+      // Handle editNewCreatedModule page
+      const newModuleTitle = localStorage.getItem('newModuleTitle');
+      const moduleNumber = localStorage.getItem('module_number');
 
-        // Display the module number if it exists
-        if (moduleNumber) {
-            const numberElement = document.getElementById('added_module_number');
-            if (numberElement) {
-                numberElement.textContent = moduleNumber;
-            } else {
-                console.error('Element with id "added_module_number" not found.');
-            }
-        }
-    }
+      // Display the module title if it exists
+      if (newModuleTitle) {
+          const titleElement = document.getElementById('added_module_title');
+          if (titleElement) {
+              titleElement.textContent = newModuleTitle;
+          } else {
+              console.error('Element with id "added_module_title" not found.');
+          }
+      }
+
+      // Display the module number if it exists
+      if (moduleNumber) {
+          const numberElement = document.getElementById('added_module_number');
+          if (numberElement) {
+              // Parse module number to avoid leading zeros
+              numberElement.textContent = parseInt(moduleNumber, 10).toString();
+          } else {
+              console.error('Element with id "added_module_number" not found.');
+          }
+      }
+
+      // Add the event listener for navigating to the next lesson
+      addGoToLessonButtonListener();
+  } else if (pathname.includes('CMSEditNewCreatedLesson.html')) {
+      // Handle CMSEditNewCreatedLesson page
+      const newModuleTitle = localStorage.getItem('newModuleTitle');
+      const moduleNumber = localStorage.getItem('module_number');
+
+      // Display the module title if it exists
+      if (newModuleTitle) {
+          const titleElement = document.getElementById('added_module_title');
+          if (titleElement) {
+              titleElement.textContent = newModuleTitle;
+          } else {
+              console.error('Element with id "added_module_title" not found.');
+          }
+      }
+
+      // Display the module number if it exists
+      if (moduleNumber) {
+          const numberElement = document.getElementById('module_number'); // Change here to use ID
+          if (numberElement) {
+              // Parse module number to avoid leading zeros
+              numberElement.textContent = parseInt(moduleNumber, 10).toString();
+          } else {
+              console.error('Element with id "module_number" not found.');
+          }
+      }
+  }
 };
+
+// Function to add event listener for the 'go_to_lesson_button'
+function addGoToLessonButtonListener() {
+  const goToLessonButton = document.getElementById('go_to_lesson_button');
+  if (goToLessonButton) {
+      goToLessonButton.addEventListener('click', function () {
+          console.log('Navigating to CMSEditNewCreatedLesson.html');
+          window.location.href = 'CMSEditNewCreatedLesson.html';
+      });
+  } else {
+      console.error('go_to_lesson_button not found.');
+  }
+}

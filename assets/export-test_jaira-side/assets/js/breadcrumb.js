@@ -1,43 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const currentPage = window.location.pathname;
+    // Function to update breadcrumb titles
+    function updateBreadcrumb() {
+        // Retrieve module title and module number from localStorage
+        const moduleTitle = localStorage.getItem('newModuleTitle') || 'Default Module Title';
+        const moduleNumber = localStorage.getItem('module_number') || '1';
 
-    // Check if we are on the CMSEditNewCreatedLesson.html page
-    if (currentPage.includes('CMSEditNewCreatedLesson.html')) {
+        // Update module title and module number in the breadcrumb (if the elements exist)
         const moduleTitleElement = document.getElementById('added_module_title');
-        const moduleNumberElement = document.getElementById('module_number');
+        const moduleNumberElement = document.getElementById('added_module_number');
 
-        // Retrieve module title and module number from sessionStorage or localStorage
-        const moduleTitle = sessionStorage.getItem('moduleTitle') || 'Default Module Title'; // Replace with the actual key if needed
-        const moduleNumber = sessionStorage.getItem('moduleNumber') || '01'; // Replace with the actual key if needed
-
-        // Update the title and number on the page
         if (moduleTitleElement) {
             moduleTitleElement.textContent = moduleTitle;
         }
+
         if (moduleNumberElement) {
-            moduleNumberElement.textContent = moduleNumber;
+            const formattedModuleNumber = parseInt(moduleNumber, 10).toString();
+            moduleNumberElement.textContent = formattedModuleNumber;
         }
     }
 
-    // Breadcrumb navigation logic as per your previous code
-    const modulesBreadcrumb = document.getElementById('modules_breadcrumb');
-    if (modulesBreadcrumb) {
-        modulesBreadcrumb.addEventListener('click', function() {
-            window.location.href = 'modules.html';
-        });
-    }
+    // Always update the breadcrumb on page load
+    updateBreadcrumb();
 
-    const modulesLessonsBreadcrumb = document.getElementById('modules_lessons_breadcrumb');
-    if (modulesLessonsBreadcrumb) {
-        modulesLessonsBreadcrumb.addEventListener('click', function() {
-            window.location.href = 'editNewCreatedModule.html';
-        });
-    }
+    // Breadcrumb navigation logic
+    const breadcrumbElements = {
+        modules_breadcrumb: 'modules.html',
+        modules_lessons_breadcrumb: 'editNewCreatedModule.html',
+        cms_lesson_breadcrumb: 'CMSEditNewCreatedLesson.html'
+    };
 
-    const cmsLessonBreadcrumb = document.getElementById('cms_lesson_breadcrumb');
-    if (cmsLessonBreadcrumb) {
-        cmsLessonBreadcrumb.addEventListener('click', function() {
-            window.location.href = 'CMSEditNewCreatedLesson.html';
-        });
-    }
+    // Attach event listeners to the breadcrumb elements
+    Object.keys(breadcrumbElements).forEach(id => {
+        const breadcrumbElement = document.getElementById(id);
+        if (breadcrumbElement) {
+            breadcrumbElement.addEventListener('click', function() {
+                window.location.href = breadcrumbElements[id];
+            });
+        } else {
+            console.error(`Element with id "${id}" not found.`);
+        }
+    });
 });

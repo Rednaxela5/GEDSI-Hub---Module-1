@@ -125,3 +125,7 @@
   position: fixed;
 }
 
+.navbar {
+  top: 0;
+}
+

@@ -19,18 +19,21 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body style="background: #fafafa;height: 800px;">
+<body>
     <nav class="navbar navbar-expand-md sticky-top bg-body navbar">
         <div class="container-fluid"><a class="navbar-brand d-flex align-items-center navbar_brand" href="#" style="font-family: Staatliches, serif;"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="background: rgba(13,110,253,0);width: 30px;"><img class="GAD_Logo" src="assets/img/GADO_Logo_w-Border.png"></span><span class="gedsihub_name" style="color: rgb(70,64,64);font-size: 30px;">GEDSI Hub</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-md-end justify-content-lg-end justify-content-xl-end justify-content-xxl-end" id="navcol-3"><img class="search_icon" src="assets/img/Search.png"><input type="search" class="navbar_search" placeholder="Search for anything"><span class="navbar-text notification_icon_span" style="margin-right: 4px;"><img class="notification_icon" src="assets/img/Notification.png"></span><span class="d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center justify-content-xxl-center align-items-xxl-center navbar-text profile_icon_span"><img class="d-xxl-flex profile_icon" src="assets/img/Account.png"></span></div>
         </div>
     </nav>
-    <div class="modules_container" style="height: 770px;">
-        <div id="ModulesHeader">
-            <h1 class="modules_title" style="color: #464040;margin-left: 0px;">Modules</h1><input type="search" id="SearchModule" class="SearchModule" placeholder="Search for modules"><img class="SearchModule_Icon" src="assets/img/Search_Small.png" style="position: absolute;"><button class="btn btn-primary d-xxl-flex addModuleTopButton" id="addModuleTopButton" type="button"><img id="addModuleTopAddIcon" src="assets/img/Add_White.png">Add New Module</button>
+    <div class="modules_container">
+        <div>
+            <div id="ModulesHeader">
+                <h1 class="modules_title" style="color: #464040;margin-left: 0px;">Modules</h1><input type="search" id="SearchModule" class="SearchModule" placeholder="Search for modules"><img id="SearchModuleButton" class="SearchModule_Icon" src="assets/img/Search_Small.png" style="position: absolute;"><button class="btn btn-primary d-xxl-flex addModuleTopButton" id="addModuleTopButton" type="button"><img id="addModuleTopAddIcon" src="assets/img/Add_White.png">Add New Module</button>
+            </div>
+            <div class="break_title"></div>
+            <div class="align-items-end flex-wrap ModuleCards_Container" id="moduleCardsContainer"><button class="btn add-new-module" type="button" onclick="window.location.href='addNewModule.html'"><img class="d-xxl-flex add_icon" src="assets/img/Add.png" />Add New Module</button></div>
+            <div class="align-items-end flex-wrap ModuleCards_Container" id="SearchResults"></div>
         </div>
-        <div class="break_title" style="margin-top: 0px;margin-left: 0px;background: rgb(183, 186, 199);width: 1075px;"></div>
-        <div class="align-items-end flex-wrap ModuleCards_Container" id="moduleCardsContainer"><button class="btn add-new-module" type="button" onclick="window.location.href='editNewAddedModule.html'"><img class="d-xxl-flex add_icon" src="assets/img/Add.png" />Add New Module</button></div>
     </div>
     <div class="sidebar_container" style="width: 350px;height: 700px;">
         <div class="sidebar" style="width: 300px;">
@@ -62,11 +65,14 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/breadcrumb.js"></script>
-    <script src="assets/js/CMS.js"></script>
     <script src="assets/js/createLesson.js"></script>
     <script src="assets/js/DeleteLesson.js"></script>
+    <script src="assets/js/DragAndDropFile.js"></script>
     <script src="assets/js/EditLesson.js"></script>
+    <script src="assets/js/lesson_container.js"></script>
+    <script src="assets/js/lessonInfoDisplay.js"></script>
     <script src="assets/js/Modules_CardAdd.js"></script>
+    <script src="assets/js/Modules_DragAndDrop.js"></script>
     <script src="assets/js/PublishUnpublishLessontoggle.js"></script>
     <script src="assets/js/Sidebar.js"></script>
     <script src="assets/js/tinymce-init.js"></script>
