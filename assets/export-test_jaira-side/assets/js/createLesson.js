@@ -65,7 +65,7 @@ function clearLessonContainer() {
                 <div id="add_new_lesson_container" class="d-xxl-flex justify-content-xxl-center align-items-xxl-center add_new_lesson_container">
                     <span class="no_lessons_added_text">No lessons have been added yet</span>
                     <button id="createNewLessonButton" class="create_lesson_button" type="button">
-                        <img id="add_icon_create_lesson" src="Add_White.png" />Create Lesson</button>
+                        <img id="add_icon_create_lesson" src="/img/Add_White.png" />Create Lesson</button>
                 </div>
             </div>
         `;
